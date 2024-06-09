@@ -1,0 +1,46 @@
+<section>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Manage Student</mat-card-title>
+                <mat-card-subtitle>{{pageFunction}} Student</mat-card-subtitle>
+            </mat-card-header>
+            <!-- <img matCardImage src="Card wide image source"> -->
+            <mat-card-content>
+                Insert Either the first Form or the second form
+
+
+                <form [formGroup]="studentForm">
+                    <ng-container>
+                        <mat-form-field  class="example-full-width mb-3" appearance="outline">
+                            <mat-label> First Name</mat-label>
+                            <input placeholder="e.g. John" class="font" matInput formControlName="firstName"  required/>
+                            <!-- @if(studentForm.get('firstName')?.hasError('required')){
+                                <mat-error>The Student Name is Required</mat-error>
+                            } -->
+                        </mat-form-field>
+                    </ng-container>
+
+                    <!-- <ng-container>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="firstName" placeholder="Recipe firstName" required>
+                            <mat-error *ngIf="studentForm.get('firstName')?.hasError('required')">The
+                                title is required </mat-error>
+                        </mat-form-field>
+                    </ng-container> -->
+                </form>
+
+
+                
+            
+            </mat-card-content>
+            <mat-card-actions align="start">
+                <button mat-button (click)="onSubmit(pageFunction)">Action1</button>
+                
+            </mat-card-actions>
+            <mat-card-footer>
+                Footer
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+.header {
+
+    background-color: blanchedalmond;
+    padding: 2%;
+
+
+    .header-content {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+th.mat-sort-header-sorted {
+    color: bisque;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+    border-color: peru;
+}
+
+.demo-row-is-clicked {
+    font-weight: bold;
+}

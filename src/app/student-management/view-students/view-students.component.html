@@ -1,0 +1,89 @@
+<section>
+    <div>
+        <div class="header">
+            <h2 class="header-content">THIMIIONI STUDENTS</h2>
+        </div>
+        <div class="header-content">
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="index">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by index">
+                        <strong> Index</strong>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let index = index">
+                        {{index + 1}}
+                    </mat-cell>
+                </ng-container>
+
+
+                <!-- First Name -->
+                <ng-container matColumnDef="firstName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name firstName">
+                        <strong> First Name</strong>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        {{row.firstName}}
+                    </mat-cell>
+                </ng-container>
+
+
+                <!-- Second Name -->
+                <ng-container matColumnDef="secondName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by secondName">
+                        <strong> Second Name</strong>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        {{row.secondName}}
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Admission Number -->
+                <ng-container matColumnDef="admNumber">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by admNumber">
+                        <strong> Adm. Number</strong>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        {{row.admNumber}}
+                    </mat-cell>
+                </ng-container>
+
+
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <strong> Action</strong>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index" (click)="onRowClick(row)" style="gap: 5px">
+
+
+                        <button mat-mini-fab color="accent" style="color: whitesmoke;" (click)="onRowClick(row)">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+
+                        <button mat-mini-fab color="accent" style="color: whitesmoke;" (click)="updateStudent(row)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                        <button mat-mini-fab color="warn" style="color: whitesmoke;" (click)="deleteStudent(row)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; let rowIndex = index; columns: displayedColumns"
+                    [class.odd-row]="rowIndex % 2" [class.even-row]="!(rowIndex % 2)" [style.cursor]="'pointer'"
+                    matRipple [class.demo-row-is-clicked]>
+                </mat-row>
+
+
+
+            </mat-table>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+
+<app-manage-student></app-manage-student>
